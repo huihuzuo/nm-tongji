@@ -14,3 +14,12 @@ export const loadWeiduList = (val) => {
     baseUrl: ''
   })
 }
+
+//获取indexRanking
+export const loadIndexRanking = (val) => {
+    return axios.get(`/static/json/${val}.json`,{
+      baseUrl: ''
+ })
+}
+
+

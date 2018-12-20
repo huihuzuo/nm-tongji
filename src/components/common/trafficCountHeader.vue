@@ -5,22 +5,29 @@
        <div class="trafficHeader-left-second">
          <el-dropdown>
           <span class="el-dropdown-link">
-            <span>交通流量-高德</span>
+            <span>交通流量</span>
             <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>百度</el-dropdown-item>
+            <el-dropdown-item
+              @command="handleCommand(item)"
+              v-for="item in trafficChoose"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+              {{item.label}}</el-dropdown-item>
           </el-dropdown-menu>
          </el-dropdown>
        </div>
      </div>
      <div class="trafficHeader-center">
        <div
+         class="header-choose"
          @click="go(title)"
          v-for="(title, index) in weiduList"
          :key="index"
          :index="title.index"
-         >
+         :class="selected === title.alias ? 'titleSelected':''">
          {{title.name}}</div>
      </div>
      <div></div>
@@ -34,6 +41,7 @@
         return{
           weiduList:[],
           selected:null,
+          trafficChoose:[{'index':'01', 'label':'高德'},{'index':'02', 'label':'百度'}]
         }
       },
       mounted(){
@@ -53,10 +61,16 @@
           })
         },
         go(title){
+          this.selected = title.alias
           this.$router.push({
             name: title.alias
           })
         },
+        handleCommand(item){
+          this.$router.push({
+            name: item.label
+          })
+        }
       }
 
     }
@@ -92,7 +106,7 @@
       }
     }
     .trafficHeader-center{
-      div{
+      .header-choose{
         float:left;
         text-align: center;
         line-height:50px;
@@ -103,9 +117,13 @@
         &:hover{
           cursor: pointer;
         }
-
-
       }
+      .titleSelected{
+        border-left:1px solid rgb(26,130,238);
+        border-right:1px solid rgb(26,130,238);
+        border-bottom:2px solid #eee
+      }
+
 
 
     }

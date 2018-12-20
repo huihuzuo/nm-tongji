@@ -7,17 +7,15 @@ import store from "./store"
 import * as api from "./store/api"
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-//import echarts from "echarts"
+import echarts from "echarts"
 
-import * as echarts from 'echarts'
+//import * as echarts from 'echarts'
 
 Vue.prototype.$api = api
 Vue.prototype.$echarts = echarts
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
-
-
 
 /* eslint-disable no-new */
 

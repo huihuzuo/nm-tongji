@@ -9,6 +9,10 @@ import luxianWeidu from '../components/routeComponents/luxianWeidu'
 import timeWeidu from '../components/routeComponents/timeWeidu'
 import xingzhengquhuaWeidu from '../components/routeComponents/xingzhengquhuaWeidu'
 
+//交通流量-高德/百度 切换
+import trafficBaidu from '../components/routeComponents/trafficBaidu'
+import trafficGaode from '../components/routeComponents/trafficGaode'
+
 import HomePage from "../components/HomePage.vue"
 
 //信息看板组件
@@ -132,16 +136,46 @@ export default new Router({
       path:"/luxianWeidu",
       name:"luxianWeidu",
       component:luxianWeidu,
+      children:[
+        {
+          path:'/trafficGaode',
+          component: trafficGaode
+        },
+        {
+          path:'/trafficBaidu',
+          component: trafficBaidu
+        },
+      ]
     },
     {
       path:"/timeWeidu",
       name:"timeWeidu",
       component:timeWeidu,
+      children:[
+        {
+          path:'/trafficGaode',
+          component: trafficGaode
+        },
+        {
+          path:'/trafficBaidu',
+          component: trafficBaidu
+        },
+      ]
     },
     {
       path:"/xingzhengquhuaWeidu",
       name:"xingzhengquhuaWeidu",
       component:xingzhengquhuaWeidu,
+      children:[
+        {
+          path:'/xingzhengquhuaWeidu/trafficGaode',
+          component: trafficGaode
+        },
+        {
+          path:'/xingzhengquhuaWeidu/trafficBaidu',
+          component: trafficBaidu
+        },
+      ]
     },
 
   ]

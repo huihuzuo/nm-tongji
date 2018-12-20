@@ -37,7 +37,7 @@
     width:100%;
     height:100%;
     overflow: hidden;
-    background-color:$mainBg;
+    //background-color:$mainBg;
     .aside-left{
       width:200px;
       height:100%;
@@ -47,7 +47,7 @@
         height: 60px;
         width: 100%;
         color: #FFF;
-        background-color: rgba(54, 177, 244, 0.63);
+        background-color: rgba(118,180,245,0.63);
         text-align: center;
         line-height: 60px;
        }
@@ -66,13 +66,13 @@
         height: 60px;
         text-align: center;
         line-height: 60px;
-        background-color: blue;
+        background-color: rgba(53, 174, 241, 0.31);
         box-shadow: 0 6px 6px rgba(54, 177, 244, 0.06);
       }
       .aside-right-content{
         width: 100%;
         height: calc(100% - 60px);
-        background-color:#eee;
+        //background-color:#eee;
       }
 
     }

@@ -1,46 +1,48 @@
 <template>
    <div class="selector-header">
      <div class="selector-innerWrap">
-       <el-form :inline="true" :model="formInline" class="demo-form-inline" size="mini">
-         <el-form-item label="行政区划:" >
-           <el-select v-model="formInline.user" placeholder="行政区划" clearable>
-             <el-option label="区域一" value="shanghai"></el-option>
-           </el-select>
-         </el-form-item>
-         <div class="block">
-           <span class="demonstration">选择时间</span>
-           <el-date-picker
-             size="mini"
-             v-model="value1"
-             type="date"
-             placeholder="选择日期">
-           </el-date-picker>
-         </div>
-         <el-form-item>
-           <el-button type="primary" @click="onSubmit">统计分析</el-button>
-         </el-form-item>
-       </el-form>
+       <div class="first-col">
+         <div class="first-div">行政区划：</div>
+         <el-select v-model="formData" clearable placeholder="请选择" size="small">
+           <el-option
+             v-for="item in division"
+             :key="item.value"
+             :label="item.label"
+             :value="item.value">
+           </el-option>
+         </el-select>
+       </div>
+       <div class="second-col">
+         <div class="first-div">选择时间：</div>
+         <el-date-picker
+           size="small"
+           v-model="value1"
+           type="date"
+           placeholder="选择日期">
+         </el-date-picker>
+       </div>
+       <div class="third-col">统计分析</div>
      </div>
    </div>
 </template>
 
 <script>
-    export default {
+  export default {
      name: 'selectorHeader',
      data() {
       return {
-        formInline: {
-          user: '',
-          region: ''
-        },
+        division: config.range.division,
+        region: '',
         value1: '',
-
+        formData:{
+          xzqh:''
+        }
       }
     },
     methods: {
       onSubmit() {
         console.log('submit!');
-      }
+      },
     }
     }
 </script>
@@ -55,49 +57,27 @@
      justify-content: space-between;
      align-items: center;
      .selector-innerWrap{
-       width:670px;
-       height:30px;
-       margin-left:31px;
-       margin-top:15px;
-       .el-form{
-         height:100%;
+       width:900px;
+       height:100%;
+       margin-left:30px;
+       display:flex;
+       align-items: center;
+       .first-col, .second-col, .third-col{
          display:flex;
-         justify-content: space-around;
-         align-items: center;
-         .el-form-item{
-           height:100%;
-           display:flex;
-           justify-content: space-between;
-           margin-left:-37px;
-           .el-form-item__label{
-             font-size:12px!important;
-             text-align: left;
-             line-height:30px;
-             font-family: SimSun;
-           }
-           .el-button{
-             background-color: #fff;
-             color:#409EFF;
-             border-radius: 8px;
-           }
-           .el-input--suffix{
-             width:70%;
-           }
-           .el-input__inner{
-             width:60%;
-           }
-         }
-         .block{
-           height:100%;
-           margin-top:-40px;
-           margin-right:18px;
-           .demonstration{
-             font-size:14px;
-             font-family: SimSun;
-             color:#606266;
-           }
-
-         }
+         font-size:12px;
+         font-family:SimSun;
+         margin-left:8px;
+       }
+       .third-col{
+         width:68px;
+         height:28px;
+         text-align:center;
+         line-height:28px;
+         display: table-cell;
+         vertical-align:middle;
+         border:1px solid rgb(26,130,238);
+         border-radius:5px;
+         color:rgb(26,130,238);
        }
 
      }
