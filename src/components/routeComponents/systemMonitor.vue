@@ -1,15 +1,15 @@
 <template>
-  <div>系统监控
-    <headerNav></headerNav>
+  <div>
+    <trafficEventHeader></trafficEventHeader>
   </div>
 </template>
 
 <script>
-  import headerNav from "../common/headerNav.vue"
+  import trafficEventHeader from "../common/trafficEventHeader.vue"
     export default {
       name: "systemMonitor",
       components:{
-        headerNav
+        trafficEventHeader
       }
     }
 </script>

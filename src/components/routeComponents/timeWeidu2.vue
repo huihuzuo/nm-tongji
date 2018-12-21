@@ -6,11 +6,12 @@
         <div class="trafficHeader-left-second">
           <el-dropdown>
           <span class="el-dropdown-link">
-            <span>交通流量-高德</span>
+            <span>交通事件</span>
             <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>百度</el-dropdown-item>
+              <el-dropdown-item>高德</el-dropdown-item>
+              <el-dropdown-item>行业</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -19,7 +20,7 @@
         <div
           class="header-choose"
           @click="go(title)"
-          v-for="(title, index) in weiduList"
+          v-for="(title, index) in weiduList2"
           :key="index"
           :index="title.index"
           :class="selected === title.alias ? 'titleSelected':''">
@@ -65,15 +66,15 @@
           <div class="first-div">选择时间：</div>
           <el-date-picker
             size="small"
-            v-model="value5"
-            type="year"
-            placeholder="选择年">
-          </el-date-picker>
+            v-model="value1"
+            type="date"
+            placeholder="开始时间">
+          </el-date-picker>&nbsp;-
           <el-date-picker
             size="small"
-            v-model="value4"
-            type="month"
-            placeholder="选择月">
+            v-model="value2"
+            type="date"
+            placeholder="开始时间">
           </el-date-picker>
         </div>
         <div class="forth-col">统计分析</div>
@@ -84,7 +85,7 @@
 </template>
 
 <script>
-  import timeWeiduEchart from '../common/echarts/trafficCountcharts/timeWeiduEchart'
+  import timeWeiduEchart from '../common/echarts/trafficEventEcharts/timeWeiduEcharts'
   export default {
     name: 'timeWeidu',
     components:{
@@ -92,12 +93,12 @@
     },
     data() {
       return{
-        value4:'',
-        value5:'',
+        value1:'',
+        value2:'',
         //division: config.range.division,
         timeSelected:null,
         formData:{},
-        weiduList:[],
+        weiduList2:[],
         selected:null,
         timeList:[
           {'index':'0', 'time':'时'},
@@ -114,14 +115,14 @@
       }
     },
     mounted(){
-      this.loadWeiduList("weiduList")
+      this.loadWeiduList2("weiduList2")
     },
     methods:{
-      loadWeiduList(val){
-        this.$api.loadWeiduList(val)
+      loadWeiduList2(val){
+        this.$api.loadWeiduList2(val)
           .then(res =>{
             if(res.status === 200){
-              this.weiduList = res.data
+              this.weiduList2 = res.data
             }else{
               this.$message.error("err")
             }
@@ -143,7 +144,7 @@
 </script>
 
 <style scoped lang="scss">
-  .trafficHeader-wrap{
+ .trafficHeader-wrap{
     width:100%;
     height:50px;
     background-color: #fff;
@@ -212,7 +213,7 @@
       }
     }
   }
-  .selector-header{
+ .selector-header{
     width:100%;
     height:50px;
     background-color: rgba(26,130,238,0.05);

@@ -1,0 +1,17 @@
+[
+  {
+    "index": "01",
+    "name": "路线维度",
+    "alias": "luxianWeidu2"
+  },
+  {
+    "index": "02",
+    "name": "行政区划维度",
+    "alias": "xingzhengquhuaWeidu2"
+  },
+  {
+    "index": "03",
+    "name": "时间维度",
+    "alias": "timeWeidu2"
+  }
+]

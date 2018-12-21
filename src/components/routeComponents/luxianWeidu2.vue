@@ -1,6 +1,6 @@
 <template>
  <div>
-   <trafficCountHeader></trafficCountHeader>
+   <trafficEventHeader></trafficEventHeader>
    <div class="luxianWeidu-content">
      <div class="selector-header">
        <div class="selector-innerWrap">
@@ -28,9 +28,9 @@
        </div>
      </div>
      <div class="echart-wrap">
-       <luxianWeiduEchart></luxianWeiduEchart>
+       <luxianWeiduEcharts></luxianWeiduEcharts>
        <div class="echart-right">
-         <indexRanking></indexRanking>
+         <trafficEventRanking></trafficEventRanking>
        </div>
      </div>
    </div>
@@ -38,10 +38,10 @@
 </template>
 
 <script type="text/javascript">
-  import trafficCountHeader from '../common/trafficCountHeader'
-  import indexRanking from '../common/indexRanking'
-  import  luxianWeiduEchart from '../common/echarts/trafficCountcharts/luxianWeiduEchart'
-    export default {
+  import trafficEventHeader from '../common/trafficEventHeader'
+  import trafficEventRanking from '../common/trafficEventRanking'
+  import luxianWeiduEcharts from '../common/echarts/trafficEventEcharts/luxianWeiduEcharts'
+  export default {
       name: 'luxianWeidu',
       data(){
         return {
@@ -50,13 +50,13 @@
           value1: '',
           formData:{
             xzqh:''
-          } ,
+          },
         }
       },
       components:{
-        trafficCountHeader,
-        indexRanking,
-        luxianWeiduEchart,
+        trafficEventHeader,
+        luxianWeiduEcharts,
+        trafficEventRanking
       },
       mounted(){
 
@@ -103,7 +103,6 @@
           border-radius: 5px;
           color: rgb(26, 130, 238);
         }
-
       }
     }
     .echart-wrap {
@@ -112,11 +111,11 @@
       padding: 25px;
       display: flex;
       .echart-right {
-        width:400px;
+        width:500px;
         height: 100%;
-        margin-left: 100px;
+        margin-left: 50px;
+        margin-right:80px;
       }
     }
   }
-
 </style>

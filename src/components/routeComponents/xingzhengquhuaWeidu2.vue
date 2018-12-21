@@ -1,6 +1,6 @@
 <template>
    <div>
-     <trafficCountHeader></trafficCountHeader>
+     <trafficEventHeader></trafficEventHeader>
      <div class="xingzhengquhuaWeidu-content">
        <selectorHeader></selectorHeader>
        <div class="echart-wrap">
@@ -8,9 +8,9 @@
            <div id="echart-left-first"></div>
            <div id="echart-left-second"></div>
          </div>-->
-         <xingzhengquhuaWeiduEchart></xingzhengquhuaWeiduEchart>
+         <xingzhengquhuaWeiduEcharts></xingzhengquhuaWeiduEcharts>
          <div class="echart-right">
-           <indexRanking></indexRanking>
+           <trafficEventRanking></trafficEventRanking>
          </div>
        </div>
 
@@ -19,17 +19,18 @@
 </template>
 
 <script>
-  import trafficCountHeader from '../common/trafficCountHeader'
+  import trafficEventHeader from '../common/trafficEventHeader'
   import selectorHeader from '../common/selectorHeader'
-  import indexRanking from '../common/indexRanking'
-  import xingzhengquhuaWeiduEchart from '../common/echarts/trafficCountcharts/xingzhengquhuaWeiduEchart'
+  import trafficEventRanking from '../common/trafficEventRanking'
+  import xingzhengquhuaWeiduEcharts from '../common/echarts/trafficEventEcharts/xingzhengquhuaWeiduEcharts'
+
     export default {
       name: 'xingzhengquhuaWeidu',
       components:{
-        trafficCountHeader,
+        trafficEventHeader,
         selectorHeader,
-        indexRanking,
-        xingzhengquhuaWeiduEchart
+        trafficEventRanking,
+        xingzhengquhuaWeiduEcharts
       },
       mounted(){}
     }
@@ -55,9 +56,10 @@
          }
        }
        .echart-right{
-         width:400px;
+         width:500px;
          height:100%;
-         margin-left:100px;
+         margin-left: 50px;
+         margin-right:80px;
 
        }
      }
